@@ -30,14 +30,14 @@ namespace Assignment_9.Models
                 context.Movies.AddRange(
                 new Movie
                 {
-                    Category = "Test",
-                    Title = "Test",
-                    Year = "9999",
-                    Director = "Test",
-                    Rating = "Test",
+                    Category = "EXAMPLE DATA",
+                    Title = "EXAMPLE DATA",
+                    Year = "99999999999",
+                    Director = "EXAMPLE DATA",
+                    Rating = "EXAMPLE DATA",
                     Edited = false,
-                    LentTo = "Test",
-                    Notes = "Test"
+                    LentTo = "EXAMPLE DATA",
+                    Notes = "EXAMPLE DATA"
                 }
 
                 );
