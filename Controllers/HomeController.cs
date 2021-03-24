@@ -96,15 +96,29 @@ namespace Assignment_9.Controllers
         [HttpPost]
         public IActionResult EditMoviePartTwo(Movie m)
         {
-            //take the title to be used in the confirmation page
-            TempData["Title"] = m.Title;
+            if (ModelState.IsValid)
+            {
+                //take the title to be used in the confirmation page
+                TempData["Title"] = m.Title;
 
-            //update the movie info in the DB
-            _context.Movies.Update(m);
-            _context.SaveChanges();
+                //update the movie info in the DB
+                _context.Movies.Update(m);
+                _context.SaveChanges();
 
-            //Send the confirmation page
-            return View("ConfirmationEdit");
+                //Send the confirmation page
+                return View("ConfirmationEdit");
+            }
+
+            //send back the same page with validation summary if there are errors
+            else
+            {
+                //Save the object to the viewbag
+                ViewBag.Movie = m;
+
+                //send the Edit Movie view along with the object selected
+                return View("EditMovie", ViewBag.Movie);
+            }
+
         }
 
         //Get request for view movies page. Send in the DB to use
